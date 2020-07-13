@@ -17,9 +17,9 @@ spec:
 # add strategy to support the change to rollout
   strategy:
     blueGreen:
-      activeService: app-active
+      activeService: web
       autoPromotionEnabled: false
-      previewService: app-preview
+      previewService: web-preview
   template:
     metadata:
       labels:
