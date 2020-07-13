@@ -34,7 +34,7 @@ spec:
       - name: main
         image: opsani/co-http:latest
         imagePullPolicy: Always
-        args: [ 'busy=20' ]
+        args: [ 'busy=40' ]
         resources:
           limits:
             cpu: 250m
