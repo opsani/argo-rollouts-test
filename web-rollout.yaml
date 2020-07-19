@@ -26,8 +26,8 @@ spec:
         app: web
         role: main
       annotations:
-        prometheus.io/path: /stats/prometheus
-        prometheus.io/port: '9901'
+        prometheus.io/path: /metrics
+        prometheus.io/port: '8080'
         prometheus.io/scrape: 'true'
     spec:
       containers:
@@ -37,8 +37,8 @@ spec:
         args: [ 'busy=40' ]
         resources:
           limits:
-            cpu: 250m
-            memory: 256Mi
+            cpu: 500m
+            memory: 1Gi
           requests:
             cpu: 125m
             memory: 128Mi
@@ -47,10 +47,10 @@ spec:
         readinessProbe:
           failureThreshold: 3
           httpGet:
-            path: /
+            path: /healthz
             port: 8080
             scheme: HTTP
-          initialDelaySeconds: 120
+          initialDelaySeconds: 30
           periodSeconds: 5
           successThreshold: 3
           timeoutSeconds: 10
